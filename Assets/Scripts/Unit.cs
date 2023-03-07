@@ -26,7 +26,11 @@ public abstract class Unit : MonoBehaviour,
 
     private void Start()
     {
-
+        // Check MainManager.Instance because in case launching Main scene directly, the instance is not created.
+        if (MainManager.Instance != null)
+        {
+            SetColor(MainManager.Instance.TeamColor);
+        }
     }
 
     void SetColor(Color c)
@@ -92,6 +96,6 @@ public abstract class Unit : MonoBehaviour,
 
     public virtual void GetContent(ref List<Building.InventoryEntry> content)
     {
-        
+
     }
 }
